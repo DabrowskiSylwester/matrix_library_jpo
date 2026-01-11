@@ -482,6 +482,26 @@ namespace sd {
     }
 
     /***********************************************
+    *           operator ==  and !=                *
+    *                matA(r,c)
+    * Operators allow to compare two matrixes.   
+    ***********************************************/  
+
+    bool operator == ( const Matrix & other ){
+
+      if ( ( m_rows != other.m_rows ) || ( m_columns != other.m_columns )){
+        return false;
+      }
+
+      return m_matrix == other.m_matrix; // use of vectors comparision
+    }
+
+    bool operator != ( const Matrix & other ){
+
+      return !( (*this) == other );
+    }
+
+    /***********************************************
     *                operator ()                   *
     *                matA(r,c)
     * Operator () allows to get elements value
